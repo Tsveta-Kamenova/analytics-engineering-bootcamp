@@ -1,0 +1,142 @@
+[0m15:32:19.795024 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'start', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x0000024580BD8790>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x0000024582F57C70>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x0000024582F57E50>]}
+
+
+============================== 15:32:19.795024 | cedd081e-1c48-4d23-9e22-44f889e91c35 ==============================
+[0m15:32:19.795024 [info ] [MainThread]: Running with dbt=1.10.13
+[0m15:32:19.795024 [debug] [MainThread]: running dbt with arguments {'cache_selected_only': 'False', 'write_json': 'True', 'log_format': 'default', 'use_colors': 'True', 'profiles_dir': 'C:\\Users\\Bubi\\.dbt', 'warn_error': 'None', 'log_path': 'logs', 'partial_parse': 'True', 'indirect_selection': 'eager', 'send_anonymous_usage_stats': 'True', 'fail_fast': 'False', 'warn_error_options': 'WarnErrorOptionsV2(error=[], warn=[], silence=[])', 'static_parser': 'True', 'version_check': 'True', 'use_experimental_parser': 'False', 'introspect': 'True', 'quiet': 'False', 'empty': 'None', 'log_cache_events': 'False', 'debug': 'False', 'no_print': 'None', 'invocation_command': 'dbt init ae-bootcamp', 'printer_width': '80', 'target_path': 'None'}
+[0m15:33:57.573085 [debug] [MainThread]: Starter project path: D:\Analytics_Engineering\analytics-engineering-bootcamp\venv\lib\site-packages\dbt\include\starter_project
+[0m15:33:57.709920 [info ] [MainThread]: 
+Your new dbt project "ae_bootcamp" was created!
+
+For more information on how to configure the profiles.yml file,
+please consult the dbt documentation here:
+
+  https://docs.getdbt.com/docs/configure-your-profile
+
+One more thing:
+
+Need help? Don't hesitate to reach out to us via GitHub issues or on Slack:
+
+  https://community.getdbt.com/
+
+Happy modeling!
+
+[0m15:33:57.709920 [info ] [MainThread]: Setting up your profile.
+[0m15:39:47.852382 [error] [MainThread]: Encountered an error:
+
+[0m15:39:47.854934 [error] [MainThread]: Traceback (most recent call last):
+  File "D:\Analytics_Engineering\analytics-engineering-bootcamp\venv\lib\site-packages\dbt\cli\requires.py", line 178, in wrapper
+    result, success = func(*args, **kwargs)
+  File "D:\Analytics_Engineering\analytics-engineering-bootcamp\venv\lib\site-packages\dbt\cli\requires.py", line 128, in wrapper
+    return func(*args, **kwargs)
+  File "D:\Analytics_Engineering\analytics-engineering-bootcamp\venv\lib\site-packages\dbt\cli\main.py", line 483, in init
+    results = task.run()
+  File "D:\Analytics_Engineering\analytics-engineering-bootcamp\venv\lib\site-packages\dbt\task\init.py", line 346, in run
+    self.setup_profile(profile_name)
+  File "D:\Analytics_Engineering\analytics-engineering-bootcamp\venv\lib\site-packages\dbt\task\init.py", line 262, in setup_profile
+    self.create_profile_from_target(adapter, profile_name=profile_name)
+  File "D:\Analytics_Engineering\analytics-engineering-bootcamp\venv\lib\site-packages\dbt\task\init.py", line 179, in create_profile_from_target
+    self.create_profile_from_profile_template(profile_template, profile_name)
+  File "D:\Analytics_Engineering\analytics-engineering-bootcamp\venv\lib\site-packages\dbt\task\init.py", line 163, in create_profile_from_profile_template
+    target = self.generate_target_from_input(prompts, initial_target)
+  File "D:\Analytics_Engineering\analytics-engineering-bootcamp\venv\lib\site-packages\dbt\task\init.py", line 129, in generate_target_from_input
+    target[key] = click.prompt(
+  File "D:\Analytics_Engineering\analytics-engineering-bootcamp\venv\lib\site-packages\click\termui.py", line 168, in prompt
+    value = prompt_func(prompt)
+  File "D:\Analytics_Engineering\analytics-engineering-bootcamp\venv\lib\site-packages\click\termui.py", line 151, in prompt_func
+    raise Abort() from None
+click.exceptions.Abort
+
+[0m15:39:47.854934 [debug] [MainThread]: Command `dbt init` failed at 15:39:47.854934 after 448.18 seconds
+[0m15:39:47.860135 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'end', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x0000024580BD8790>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x00000245B9A8BD00>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x00000245B9A8A680>]}
+[0m15:39:47.861222 [debug] [MainThread]: Flushing usage events
+[0m15:39:48.542375 [debug] [MainThread]: An error was encountered while trying to flush usage events
+[0m15:40:18.207587 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'start', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x000001A49A89C790>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x000001A49CB17C70>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x000001A49CB17E50>]}
+
+
+============================== 15:40:18.213598 | 345a641b-5f63-4f63-a3b5-2230bd232a99 ==============================
+[0m15:40:18.213598 [info ] [MainThread]: Running with dbt=1.10.13
+[0m15:40:18.214593 [debug] [MainThread]: running dbt with arguments {'printer_width': '80', 'profiles_dir': 'C:\\Users\\Bubi\\.dbt', 'target_path': 'None', 'use_colors': 'True', 'no_print': 'None', 'warn_error': 'None', 'indirect_selection': 'eager', 'partial_parse': 'True', 'static_parser': 'True', 'send_anonymous_usage_stats': 'True', 'log_path': 'logs', 'warn_error_options': 'WarnErrorOptionsV2(error=[], warn=[], silence=[])', 'fail_fast': 'False', 'version_check': 'True', 'use_experimental_parser': 'False', 'introspect': 'True', 'quiet': 'False', 'empty': 'None', 'log_cache_events': 'False', 'debug': 'False', 'log_format': 'default', 'invocation_command': 'dbt init ae_bootcamp', 'cache_selected_only': 'False', 'write_json': 'True'}
+[0m15:40:18.237953 [info ] [MainThread]: A project called ae_bootcamp already exists here.
+[0m15:40:18.239952 [debug] [MainThread]: Command `dbt init` succeeded at 15:40:18.239952 after 0.14 seconds
+[0m15:40:18.241952 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'end', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x000001A49A89C790>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x000001A49CB17C70>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x000001A49CB175E0>]}
+[0m15:40:18.241952 [debug] [MainThread]: Flushing usage events
+[0m15:40:19.024232 [debug] [MainThread]: An error was encountered while trying to flush usage events
+[0m15:43:36.314779 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'start', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x0000020A06D1C7C0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x0000020A08F89DE0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x0000020A08F89C00>]}
+
+
+============================== 15:43:36.314779 | 0c58e457-b017-40a4-a7df-f7dbea4a5d48 ==============================
+[0m15:43:36.314779 [info ] [MainThread]: Running with dbt=1.10.13
+[0m15:43:36.314779 [debug] [MainThread]: running dbt with arguments {'write_json': 'True', 'printer_width': '80', 'use_colors': 'True', 'log_format': 'default', 'no_print': 'None', 'warn_error': 'None', 'log_path': 'logs', 'partial_parse': 'True', 'static_parser': 'True', 'send_anonymous_usage_stats': 'True', 'indirect_selection': 'eager', 'warn_error_options': 'WarnErrorOptionsV2(error=[], warn=[], silence=[])', 'fail_fast': 'False', 'use_experimental_parser': 'False', 'version_check': 'True', 'quiet': 'False', 'introspect': 'True', 'empty': 'None', 'log_cache_events': 'False', 'debug': 'False', 'profiles_dir': 'C:\\Users\\Bubi\\.dbt', 'invocation_command': 'dbt init ae_bootcamp', 'cache_selected_only': 'False', 'target_path': 'None'}
+[0m15:43:36.349333 [debug] [MainThread]: Starter project path: D:\Analytics_Engineering\analytics-engineering-bootcamp\venv\lib\site-packages\dbt\include\starter_project
+[0m15:43:36.372187 [info ] [MainThread]: 
+Your new dbt project "ae_bootcamp" was created!
+
+For more information on how to configure the profiles.yml file,
+please consult the dbt documentation here:
+
+  https://docs.getdbt.com/docs/configure-your-profile
+
+One more thing:
+
+Need help? Don't hesitate to reach out to us via GitHub issues or on Slack:
+
+  https://community.getdbt.com/
+
+Happy modeling!
+
+[0m15:43:36.373189 [info ] [MainThread]: Setting up your profile.
+[0m15:44:19.734186 [info ] [MainThread]: Profile ae_bootcamp written to C:\Users\Bubi\.dbt\profiles.yml using target's profile_template.yml and your supplied values. Run 'dbt debug' to validate the connection.
+[0m15:44:19.741532 [debug] [MainThread]: Command `dbt init` succeeded at 15:44:19.741532 after 43.51 seconds
+[0m15:44:19.742545 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'end', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x0000020A06D1C7C0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x0000020A3FA754B0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x0000020A3FA776A0>]}
+[0m15:44:19.743616 [debug] [MainThread]: Flushing usage events
+[0m15:44:20.335911 [debug] [MainThread]: An error was encountered while trying to flush usage events
+[0m15:44:55.140586 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'start', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x000002361B5F8760>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x000002361D87BBE0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x000002361D87BDC0>]}
+
+
+============================== 15:44:55.144982 | 59673b8b-ea0f-4c30-aecf-0394a4d345d1 ==============================
+[0m15:44:55.144982 [info ] [MainThread]: Running with dbt=1.10.13
+[0m15:44:55.146980 [debug] [MainThread]: running dbt with arguments {'log_format': 'default', 'no_print': 'None', 'invocation_command': 'dbt debug', 'printer_width': '80', 'target_path': 'None', 'warn_error': 'None', 'indirect_selection': 'eager', 'fail_fast': 'False', 'partial_parse': 'True', 'send_anonymous_usage_stats': 'True', 'static_parser': 'True', 'warn_error_options': 'WarnErrorOptionsV2(error=[], warn=[], silence=[])', 'log_path': 'logs', 'version_check': 'True', 'use_experimental_parser': 'False', 'quiet': 'False', 'introspect': 'True', 'empty': 'None', 'log_cache_events': 'False', 'debug': 'False', 'profiles_dir': 'C:\\Users\\Bubi\\.dbt', 'use_colors': 'True', 'cache_selected_only': 'False', 'write_json': 'True'}
+[0m15:44:55.179527 [info ] [MainThread]: dbt version: 1.10.13
+[0m15:44:55.181921 [info ] [MainThread]: python version: 3.10.7
+[0m15:44:55.182939 [info ] [MainThread]: python path: D:\Analytics_Engineering\analytics-engineering-bootcamp\venv\Scripts\python.exe
+[0m15:44:55.183936 [info ] [MainThread]: os info: Windows-10-10.0.26100-SP0
+[0m15:45:02.567296 [info ] [MainThread]: Using profiles dir at C:\Users\Bubi\.dbt
+[0m15:45:02.569296 [info ] [MainThread]: Using profiles.yml file at C:\Users\Bubi\.dbt\profiles.yml
+[0m15:45:02.572298 [info ] [MainThread]: Using dbt_project.yml file at D:\Analytics_Engineering\analytics-engineering-bootcamp\dbt_project.yml
+[0m15:45:02.573296 [error] [MainThread]: Encountered an error:
+Internal Error
+  Profile should not be None if loading profile completed
+[0m15:45:02.577296 [debug] [MainThread]: Command `dbt debug` failed at 15:45:02.577296 after 7.59 seconds
+[0m15:45:02.579298 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'end', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x000002361B5F8760>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x000002365504B580>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x0000023655049630>]}
+[0m15:45:02.580296 [debug] [MainThread]: Flushing usage events
+[0m15:45:03.157147 [debug] [MainThread]: An error was encountered while trying to flush usage events
+[0m15:58:35.545215 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'start', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x00000169AD6FC760>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x00000169AF97BBE0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x00000169AF97BDC0>]}
+
+
+============================== 15:58:35.545215 | 4eeced60-a3ed-42a3-bccb-3604ddde3f57 ==============================
+[0m15:58:35.545215 [info ] [MainThread]: Running with dbt=1.10.13
+[0m15:58:35.551802 [debug] [MainThread]: running dbt with arguments {'target_path': 'None', 'no_print': 'None', 'profiles_dir': 'C:\\Users\\Bubi\\.dbt', 'invocation_command': 'dbt init ae_bootcamp', 'cache_selected_only': 'False', 'warn_error': 'None', 'static_parser': 'True', 'fail_fast': 'False', 'log_path': 'logs', 'send_anonymous_usage_stats': 'True', 'indirect_selection': 'eager', 'warn_error_options': 'WarnErrorOptionsV2(error=[], warn=[], silence=[])', 'partial_parse': 'True', 'use_experimental_parser': 'False', 'version_check': 'True', 'introspect': 'True', 'quiet': 'False', 'empty': 'None', 'log_cache_events': 'False', 'debug': 'False', 'log_format': 'default', 'use_colors': 'True', 'printer_width': '80', 'write_json': 'True'}
+[0m15:58:35.573201 [debug] [MainThread]: Starter project path: D:\Analytics_Engineering\analytics-engineering-bootcamp\venv\lib\site-packages\dbt\include\starter_project
+[0m15:58:35.595643 [info ] [MainThread]: 
+Your new dbt project "ae_bootcamp" was created!
+
+For more information on how to configure the profiles.yml file,
+please consult the dbt documentation here:
+
+  https://docs.getdbt.com/docs/configure-your-profile
+
+One more thing:
+
+Need help? Don't hesitate to reach out to us via GitHub issues or on Slack:
+
+  https://community.getdbt.com/
+
+Happy modeling!
+
+[0m15:58:35.596642 [info ] [MainThread]: Setting up your profile.
+[0m15:59:13.977549 [info ] [MainThread]: Profile ae_bootcamp written to C:\Users\Bubi\.dbt\profiles.yml using target's profile_template.yml and your supplied values. Run 'dbt debug' to validate the connection.
+[0m15:59:13.979549 [debug] [MainThread]: Command `dbt init` succeeded at 15:59:13.979549 after 38.52 seconds
+[0m15:59:13.980550 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'end', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x00000169AD6FC760>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x00000169E6459750>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x00000169E64598A0>]}
+[0m15:59:13.981551 [debug] [MainThread]: Flushing usage events
+[0m15:59:14.529889 [debug] [MainThread]: An error was encountered while trying to flush usage events
