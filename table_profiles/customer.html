@@ -1,0 +1,858 @@
+<html><head><title>customer Profile</title></head><body><h1>Table: customer</h1><p><b>Rows:</b> 30 | <b>Columns:</b> 18</p><p><b>% Row Duplicates:</b> 3.33%</p><p><b>Columns with missing values:</b> email_address, home_phone, mobile_phone, web_page, notes</p><p><b>Columns with duplicate values:</b> id, company, last_name, first_name, email_address, job_title, business_phone, home_phone, mobile_phone, fax_number, address, city, state_province, zip_postal_code, country_region, web_page, notes, attachments</p><h2>Sample (first 10 rows)</h2><table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th>id</th>
+      <th>company</th>
+      <th>last_name</th>
+      <th>first_name</th>
+      <th>email_address</th>
+      <th>job_title</th>
+      <th>business_phone</th>
+      <th>home_phone</th>
+      <th>mobile_phone</th>
+      <th>fax_number</th>
+      <th>address</th>
+      <th>city</th>
+      <th>state_province</th>
+      <th>zip_postal_code</th>
+      <th>country_region</th>
+      <th>web_page</th>
+      <th>notes</th>
+      <th>attachments</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>3</td>
+      <td>Company C</td>
+      <td>Axen</td>
+      <td>Thomas</td>
+      <td>None</td>
+      <td>Purchasing Representative</td>
+      <td>(123)555-0100</td>
+      <td>None</td>
+      <td>None</td>
+      <td>(123)555-0101</td>
+      <td>123 3rd Street</td>
+      <td>Los Angelas</td>
+      <td>CA</td>
+      <td>99999</td>
+      <td>USA</td>
+      <td>None</td>
+      <td>None</td>
+      <td></td>
+    </tr>
+    <tr>
+      <td>19</td>
+      <td>Company S</td>
+      <td>Eggerer</td>
+      <td>Alexander</td>
+      <td>None</td>
+      <td>Accounting Assistant</td>
+      <td>(123)555-0100</td>
+      <td>None</td>
+      <td>None</td>
+      <td>(123)555-0101</td>
+      <td>789 19th Street</td>
+      <td>Los Angelas</td>
+      <td>CA</td>
+      <td>99999</td>
+      <td>USA</td>
+      <td>None</td>
+      <td>None</td>
+      <td></td>
+    </tr>
+    <tr>
+      <td>16</td>
+      <td>Company P</td>
+      <td>Goldschmidt</td>
+      <td>Daniel</td>
+      <td>None</td>
+      <td>Purchasing Representative</td>
+      <td>(123)555-0100</td>
+      <td>None</td>
+      <td>None</td>
+      <td>(123)555-0101</td>
+      <td>456 16th Street</td>
+      <td>San Francisco</td>
+      <td>CA</td>
+      <td>99999</td>
+      <td>USA</td>
+      <td>None</td>
+      <td>None</td>
+      <td></td>
+    </tr>
+    <tr>
+      <td>14</td>
+      <td>Company N</td>
+      <td>Grilo</td>
+      <td>Carlos</td>
+      <td>None</td>
+      <td>Purchasing Representative</td>
+      <td>(123)555-0100</td>
+      <td>None</td>
+      <td>None</td>
+      <td>(123)555-0101</td>
+      <td>456 14th Street</td>
+      <td>Denver</td>
+      <td>CO</td>
+      <td>99999</td>
+      <td>USA</td>
+      <td>None</td>
+      <td>None</td>
+      <td></td>
+    </tr>
+    <tr>
+      <td>29</td>
+      <td>Company CC</td>
+      <td>Lee</td>
+      <td>Soo Jung</td>
+      <td>None</td>
+      <td>Purchasing Manager</td>
+      <td>(123)555-0100</td>
+      <td>None</td>
+      <td>None</td>
+      <td>(123)555-0101</td>
+      <td>789 29th Street</td>
+      <td>Denver</td>
+      <td>CO</td>
+      <td>99999</td>
+      <td>USA</td>
+      <td>None</td>
+      <td>None</td>
+      <td></td>
+    </tr>
+    <tr>
+      <td>26</td>
+      <td>Company Z</td>
+      <td>Liu</td>
+      <td>Run</td>
+      <td>None</td>
+      <td>Accounting Assistant</td>
+      <td>(123)555-0100</td>
+      <td>None</td>
+      <td>None</td>
+      <td>(123)555-0101</td>
+      <td>789 26th Street</td>
+      <td>Miami</td>
+      <td>FL</td>
+      <td>99999</td>
+      <td>USA</td>
+      <td>None</td>
+      <td>None</td>
+      <td></td>
+    </tr>
+    <tr>
+      <td>11</td>
+      <td>Company K</td>
+      <td>Krschne</td>
+      <td>Peter</td>
+      <td>None</td>
+      <td>Purchasing Manager</td>
+      <td>(123)555-0100</td>
+      <td>None</td>
+      <td>None</td>
+      <td>(123)555-0101</td>
+      <td>123 11th Street</td>
+      <td>Miami</td>
+      <td>FL</td>
+      <td>99999</td>
+      <td>USA</td>
+      <td>None</td>
+      <td>None</td>
+      <td></td>
+    </tr>
+    <tr>
+      <td>15</td>
+      <td>Company O</td>
+      <td>Kupkova</td>
+      <td>Helena</td>
+      <td>None</td>
+      <td>Purchasing Manager</td>
+      <td>(123)555-0100</td>
+      <td>None</td>
+      <td>None</td>
+      <td>(123)555-0101</td>
+      <td>456 15th Street</td>
+      <td>Honolulu</td>
+      <td>HI</td>
+      <td>99999</td>
+      <td>USA</td>
+      <td>None</td>
+      <td>None</td>
+      <td></td>
+    </tr>
+    <tr>
+      <td>7</td>
+      <td>Company G</td>
+      <td>Xie</td>
+      <td>Ming-Yang</td>
+      <td>None</td>
+      <td>Owner</td>
+      <td>(123)555-0100</td>
+      <td>None</td>
+      <td>None</td>
+      <td>(123)555-0101</td>
+      <td>123 7th Street</td>
+      <td>Boise</td>
+      <td>ID</td>
+      <td>99999</td>
+      <td>USA</td>
+      <td>None</td>
+      <td>None</td>
+      <td></td>
+    </tr>
+    <tr>
+      <td>25</td>
+      <td>Company Y</td>
+      <td>Rodman</td>
+      <td>John</td>
+      <td>None</td>
+      <td>Purchasing Manager</td>
+      <td>(123)555-0100</td>
+      <td>None</td>
+      <td>None</td>
+      <td>(123)555-0101</td>
+      <td>789 25th Street</td>
+      <td>Chicago</td>
+      <td>IL</td>
+      <td>99999</td>
+      <td>USA</td>
+      <td>None</td>
+      <td>None</td>
+      <td></td>
+    </tr>
+  </tbody>
+</table><h2>Descriptive Statistics</h2><table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>id</th>
+      <th>company</th>
+      <th>last_name</th>
+      <th>first_name</th>
+      <th>email_address</th>
+      <th>job_title</th>
+      <th>business_phone</th>
+      <th>home_phone</th>
+      <th>mobile_phone</th>
+      <th>fax_number</th>
+      <th>address</th>
+      <th>city</th>
+      <th>state_province</th>
+      <th>zip_postal_code</th>
+      <th>country_region</th>
+      <th>web_page</th>
+      <th>notes</th>
+      <th>attachments</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>count</th>
+      <td>30.0</td>
+      <td>30</td>
+      <td>30</td>
+      <td>30</td>
+      <td>0</td>
+      <td>30</td>
+      <td>30</td>
+      <td>0</td>
+      <td>0</td>
+      <td>30</td>
+      <td>30</td>
+      <td>30</td>
+      <td>30</td>
+      <td>30</td>
+      <td>30</td>
+      <td>0</td>
+      <td>0</td>
+      <td>30</td>
+    </tr>
+    <tr>
+      <th>unique</th>
+      <td>&lt;NA&gt;</td>
+      <td>29</td>
+      <td>28</td>
+      <td>28</td>
+      <td>0</td>
+      <td>6</td>
+      <td>1</td>
+      <td>0</td>
+      <td>0</td>
+      <td>1</td>
+      <td>29</td>
+      <td>16</td>
+      <td>15</td>
+      <td>1</td>
+      <td>1</td>
+      <td>0</td>
+      <td>0</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>top</th>
+      <td>&lt;NA&gt;</td>
+      <td>Company A</td>
+      <td>Lee</td>
+      <td>John</td>
+      <td>NaN</td>
+      <td>Purchasing Manager</td>
+      <td>(123)555-0100</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>(123)555-0101</td>
+      <td>123 1st Street</td>
+      <td>Seattle</td>
+      <td>CA</td>
+      <td>99999</td>
+      <td>USA</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td></td>
+    </tr>
+    <tr>
+      <th>freq</th>
+      <td>&lt;NA&gt;</td>
+      <td>2</td>
+      <td>2</td>
+      <td>2</td>
+      <td>NaN</td>
+      <td>13</td>
+      <td>30</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>30</td>
+      <td>2</td>
+      <td>3</td>
+      <td>3</td>
+      <td>30</td>
+      <td>30</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>30</td>
+    </tr>
+    <tr>
+      <th>mean</th>
+      <td>14.533333</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>std</th>
+      <td>8.748333</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>min</th>
+      <td>1.0</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>25%</th>
+      <td>7.25</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>50%</th>
+      <td>14.5</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>75%</th>
+      <td>21.75</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>max</th>
+      <td>29.0</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+    </tr>
+  </tbody>
+</table><h2>Duplicate Rows (full match)</h2><table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th>id</th>
+      <th>company</th>
+      <th>last_name</th>
+      <th>first_name</th>
+      <th>email_address</th>
+      <th>job_title</th>
+      <th>business_phone</th>
+      <th>home_phone</th>
+      <th>mobile_phone</th>
+      <th>fax_number</th>
+      <th>address</th>
+      <th>city</th>
+      <th>state_province</th>
+      <th>zip_postal_code</th>
+      <th>country_region</th>
+      <th>web_page</th>
+      <th>notes</th>
+      <th>attachments</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>1</td>
+      <td>Company A</td>
+      <td>Bedecs</td>
+      <td>Anna</td>
+      <td>None</td>
+      <td>Owner</td>
+      <td>(123)555-0100</td>
+      <td>None</td>
+      <td>None</td>
+      <td>(123)555-0101</td>
+      <td>123 1st Street</td>
+      <td>Seattle</td>
+      <td>WA</td>
+      <td>99999</td>
+      <td>USA</td>
+      <td>None</td>
+      <td>None</td>
+      <td></td>
+    </tr>
+  </tbody>
+</table><h2>Column-level Duplicates</h2><h3>id</h3><table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th>id</th>
+      <th>Count</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>1</td>
+      <td>2</td>
+    </tr>
+  </tbody>
+</table><h3>company</h3><table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th>company</th>
+      <th>Count</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Company A</td>
+      <td>2</td>
+    </tr>
+  </tbody>
+</table><h3>last_name</h3><table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th>last_name</th>
+      <th>Count</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Lee</td>
+      <td>2</td>
+    </tr>
+    <tr>
+      <td>Bedecs</td>
+      <td>2</td>
+    </tr>
+  </tbody>
+</table><h3>first_name</h3><table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th>first_name</th>
+      <th>Count</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>John</td>
+      <td>2</td>
+    </tr>
+    <tr>
+      <td>Anna</td>
+      <td>2</td>
+    </tr>
+  </tbody>
+</table><h3>email_address</h3><table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th>email_address</th>
+      <th>Count</th>
+    </tr>
+  </thead>
+  <tbody>
+  </tbody>
+</table><h3>job_title</h3><table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th>job_title</th>
+      <th>Count</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Purchasing Manager</td>
+      <td>13</td>
+    </tr>
+    <tr>
+      <td>Owner</td>
+      <td>7</td>
+    </tr>
+    <tr>
+      <td>Purchasing Representative</td>
+      <td>6</td>
+    </tr>
+    <tr>
+      <td>Accounting Assistant</td>
+      <td>2</td>
+    </tr>
+  </tbody>
+</table><h3>business_phone</h3><table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th>business_phone</th>
+      <th>Count</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>(123)555-0100</td>
+      <td>30</td>
+    </tr>
+  </tbody>
+</table><h3>home_phone</h3><table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th>home_phone</th>
+      <th>Count</th>
+    </tr>
+  </thead>
+  <tbody>
+  </tbody>
+</table><h3>mobile_phone</h3><table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th>mobile_phone</th>
+      <th>Count</th>
+    </tr>
+  </thead>
+  <tbody>
+  </tbody>
+</table><h3>fax_number</h3><table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th>fax_number</th>
+      <th>Count</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>(123)555-0101</td>
+      <td>30</td>
+    </tr>
+  </tbody>
+</table><h3>address</h3><table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th>address</th>
+      <th>Count</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>123 1st Street</td>
+      <td>2</td>
+    </tr>
+  </tbody>
+</table><h3>city</h3><table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th>city</th>
+      <th>Count</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Seattle</td>
+      <td>3</td>
+    </tr>
+    <tr>
+      <td>Denver</td>
+      <td>2</td>
+    </tr>
+    <tr>
+      <td>Miami</td>
+      <td>2</td>
+    </tr>
+    <tr>
+      <td>Chicago</td>
+      <td>2</td>
+    </tr>
+    <tr>
+      <td>Los Angelas</td>
+      <td>2</td>
+    </tr>
+    <tr>
+      <td>Boston</td>
+      <td>2</td>
+    </tr>
+    <tr>
+      <td>Minneapolis</td>
+      <td>2</td>
+    </tr>
+    <tr>
+      <td>New York</td>
+      <td>2</td>
+    </tr>
+    <tr>
+      <td>Las Vegas</td>
+      <td>2</td>
+    </tr>
+    <tr>
+      <td>Portland</td>
+      <td>2</td>
+    </tr>
+    <tr>
+      <td>Memphis</td>
+      <td>2</td>
+    </tr>
+    <tr>
+      <td>Salt Lake City</td>
+      <td>2</td>
+    </tr>
+    <tr>
+      <td>Milwaukee</td>
+      <td>2</td>
+    </tr>
+  </tbody>
+</table><h3>state_province</h3><table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th>state_province</th>
+      <th>Count</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>CA</td>
+      <td>3</td>
+    </tr>
+    <tr>
+      <td>WA</td>
+      <td>3</td>
+    </tr>
+    <tr>
+      <td>CO</td>
+      <td>2</td>
+    </tr>
+    <tr>
+      <td>IL</td>
+      <td>2</td>
+    </tr>
+    <tr>
+      <td>FL</td>
+      <td>2</td>
+    </tr>
+    <tr>
+      <td>MA</td>
+      <td>2</td>
+    </tr>
+    <tr>
+      <td>MN</td>
+      <td>2</td>
+    </tr>
+    <tr>
+      <td>NY</td>
+      <td>2</td>
+    </tr>
+    <tr>
+      <td>NV</td>
+      <td>2</td>
+    </tr>
+    <tr>
+      <td>OR</td>
+      <td>2</td>
+    </tr>
+    <tr>
+      <td>TN</td>
+      <td>2</td>
+    </tr>
+    <tr>
+      <td>UT</td>
+      <td>2</td>
+    </tr>
+    <tr>
+      <td>WI</td>
+      <td>2</td>
+    </tr>
+  </tbody>
+</table><h3>zip_postal_code</h3><table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th>zip_postal_code</th>
+      <th>Count</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>99999</td>
+      <td>30</td>
+    </tr>
+  </tbody>
+</table><h3>country_region</h3><table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th>country_region</th>
+      <th>Count</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>USA</td>
+      <td>30</td>
+    </tr>
+  </tbody>
+</table><h3>web_page</h3><table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th>web_page</th>
+      <th>Count</th>
+    </tr>
+  </thead>
+  <tbody>
+  </tbody>
+</table><h3>notes</h3><table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th>notes</th>
+      <th>Count</th>
+    </tr>
+  </thead>
+  <tbody>
+  </tbody>
+</table><h3>attachments</h3><table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th>attachments</th>
+      <th>Count</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td></td>
+      <td>30</td>
+    </tr>
+  </tbody>
+</table></body></html>

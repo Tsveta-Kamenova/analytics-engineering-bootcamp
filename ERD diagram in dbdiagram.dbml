@@ -1,0 +1,334 @@
+Table customers {
+  id int [pk]
+  company varchar
+  contact_name varchar
+  contact_title varchar
+  address varchar
+  city varchar
+  state_province varchar
+  zip_postal_code varchar
+  country_region varchar
+  phone varchar
+  email varchar
+}
+
+Table employees {
+  id int [pk]
+  first_name varchar
+  last_name varchar
+  title varchar
+  email varchar
+  city varchar
+  country_region varchar
+}
+
+Table shippers {
+  id int [pk]
+  company varchar
+  phone varchar
+}
+
+Table suppliers {
+  id int [pk]
+  company varchar
+  contact_name varchar
+  contact_title varchar
+  address varchar
+  city varchar
+  state_province varchar
+  zip_postal_code varchar
+  country_region varchar
+  phone varchar
+}
+
+Table products {
+  id int [pk]
+  supplier_id int [ref: > suppliers.id]
+  product_code varchar
+  product_name varchar
+  description text
+  standard_cost decimal
+  list_price decimal
+  quantity_per_unit varchar
+  discontinued bool
+  category varchar
+}
+
+Table orders {
+  id int [pk]
+  employee_id int [ref: > employees.id]
+  customer_id int [ref: > customers.id]
+  order_date date
+  shipped_date date
+  shipper_id int [ref: > shippers.id]
+  ship_name varchar
+  ship_address varchar
+  ship_city varchar
+  ship_state_province varchar
+  ship_zip_postal_code varchar
+  ship_country_region varchar
+  shipping_fee decimal
+  taxes decimal
+  payment_type varchar
+  paid_date date
+  status varchar
+}
+
+Table order_details {
+  id int [pk]
+  order_id int [ref: > orders.id]
+  product_id int [ref: > products.id]
+  quantity int
+  unit_price decimal
+  discount decimal
+}
+
+Table inventory_transactions {
+  id int [pk]
+  product_id int [ref: > products.id]
+  transaction_type varchar
+  transaction_date date
+  quantity int
+  comments text
+}
+
+Table invoices {
+  id int [pk]
+  order_id int [ref: > orders.id]
+  invoice_date date
+  tax decimal
+  shipping decimal
+  amount_due decimal
+}
+
+
+
+
+////////////////////////////////////////////////////////
+// Full Northwind Data Warehouse Model (BigQuery)
+////////////////////////////////////////////////////////
+
+//Table customers {
+//  id int [pk]
+//  company varchar
+//  last_name varchar
+//  first_name varchar
+//  email_address varchar
+//  job_title varchar
+//  business_phone varchar
+//  home_phone varchar
+//  mobile_phone varchar
+//  fax_number varchar
+//  address varchar
+//  city varchar
+//  state_province varchar
+//  zip_postal_code varchar
+//  country_region varchar
+//  web_page varchar
+//  notes text
+//}
+//
+//Table employees {
+//  id int [pk]
+//  company varchar
+//  last_name varchar
+//  first_name varchar
+//  email_address varchar
+//  job_title varchar
+//  business_phone varchar
+//  home_phone varchar
+//  mobile_phone varchar
+//  fax_number varchar
+//  address varchar
+//  city varchar
+//  state_province varchar
+//  zip_postal_code varchar
+//  country_region varchar
+//  web_page varchar
+//  notes text
+//}
+//
+//Table employee_privileges {
+//  employee_id int [ref: > employees.id]
+//  privilege_id int [ref: > privileges.id]
+//}
+//
+//Table privileges {
+//  id int [pk]
+//  privilege_name varchar
+//}
+//
+//Table suppliers {
+//  id int [pk]
+//  company varchar
+//  last_name varchar
+//  first_name varchar
+//  email_address varchar
+//  job_title varchar
+//  business_phone varchar
+//  home_phone varchar
+//  mobile_phone varchar
+//  fax_number varchar
+//  address varchar
+//  city varchar
+//  state_province varchar
+//  zip_postal_code varchar
+//  country_region varchar
+//  web_page varchar
+//  notes text
+//}
+//
+//Table shippers {
+//  id int [pk]
+//  company varchar
+//  last_name varchar
+//  first_name varchar
+//  email_address varchar
+//  job_title varchar
+//  business_phone varchar
+//  home_phone varchar
+//  mobile_phone varchar
+//  fax_number varchar
+//  address varchar
+//  city varchar
+//  state_province varchar
+//  zip_postal_code varchar
+//  country_region varchar
+//  web_page varchar
+//  notes text
+//}
+//
+//Table products {
+//  id int [pk]
+//  supplier_ids int [ref: > suppliers.id]
+//  product_code varchar
+//  product_name varchar
+//  description text
+//  standard_cost decimal
+//  list_price decimal
+//  reorder_level int
+//  target_level int
+//  quantity_per_unit varchar
+//  discontinued bool
+//  minimum_reorder_quantity int
+//  category varchar
+//}
+//
+//Table orders {
+//  id int [pk]
+//  employee_id int [ref: > employees.id]
+//  customer_id int [ref: > customers.id]
+//  order_date date
+//  shipped_date date
+//  shipper_id int [ref: > shippers.id]
+//  ship_name varchar
+//  ship_address varchar
+//  ship_city varchar
+//  ship_state_province varchar
+//  ship_zip_postal_code varchar
+//  ship_country_region varchar
+//  shipping_fee decimal
+//  taxes decimal
+//  payment_type varchar
+//  paid_date date
+//  notes text
+//  tax_rate decimal
+//  status_id int [ref: > orders_status.id]
+//}
+//
+//Table order_details {
+//  id int [pk]
+//  order_id int [ref: > orders.id]
+//  product_id int [ref: > products.id]
+//  quantity int
+//  unit_price decimal
+//  discount decimal
+//  status_id int [ref: > order_details_status.id]
+//  purchase_order_id int [ref: > purchase_orders.id]
+//  inventory_id int [ref: > inventory_transactions.id]
+//}
+//
+//Table order_details_status {
+//  id int [pk]
+//  status varchar
+//}
+//
+//Table orders_status {
+//  id int [pk]
+//  status_name varchar
+//}
+//
+//Table orders_tax_status {
+//  id int [pk]
+//  tax_status_name varchar
+//}
+//
+//Table invoices {
+//  id int [pk]
+//  order_id int [ref: > orders.id]
+//  invoice_date date
+//  tax decimal
+//  shipping decimal
+//  amount_due decimal
+//}
+//
+//Table purchase_orders {
+//  id int [pk]
+//  supplier_id int [ref: > suppliers.id]
+//  created_by int [ref: > employees.id]
+//  submitted_date date
+//  creation_date date
+//  status_id int [ref: > purchase_order_status.id]
+//  shipping_fee decimal
+//  taxes decimal
+//  payment_amount decimal
+//  payment_method varchar
+//  notes text
+//}
+//
+//Table purchase_order_status {
+//  id int [pk]
+//  status varchar
+//}
+//
+//Table purchase_order_details {
+//  id int [pk]
+//  purchase_order_id int [ref: > purchase_orders.id]
+//  product_id int [ref: > products.id]
+//  quantity int
+//  unit_cost decimal
+//  date_received date
+//  posted_to_inventory bool
+//  inventory_id int [ref: > inventory_transactions.id]
+//}
+//
+//Table inventory_transactions {
+//  id int [pk]
+//  transaction_type int [ref: > inventory_transaction_types.id]
+//  transaction_created_date date
+//  transaction_modified_date date
+//  product_id int [ref: > products.id]
+//  quantity int
+//  comments text
+//}
+//
+//Table inventory_transaction_types {
+//  id int [pk]
+//  type_name varchar
+//}
+//
+//Table sales_reports {
+//  group_by varchar
+//  display varchar
+//  title varchar
+//  filter_row_source varchar
+//  default bool
+//}
+//
+//Table strings {
+//  string_id int [pk]
+//  string_data varchar
+//}
+//
+//
+//

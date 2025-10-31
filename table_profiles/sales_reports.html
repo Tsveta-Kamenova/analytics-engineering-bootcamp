@@ -1,0 +1,106 @@
+<html><head><title>sales_reports Profile</title></head><body><h1>Table: sales_reports</h1><p><b>Rows:</b> 5 | <b>Columns:</b> 5</p><p><b>% Row Duplicates:</b> 0.0%</p><p><b>Columns with missing values:</b> None</p><p><b>Columns with duplicate values:</b> default</p><h2>Sample (first 10 rows)</h2><table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th>group_by</th>
+      <th>display</th>
+      <th>title</th>
+      <th>filter_row_source</th>
+      <th>default</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>country_region</td>
+      <td>Country/Region</td>
+      <td>Sales By Country</td>
+      <td>SELECT DISTINCT [country_region] FROM [customers Extended] ORDER BY [country_region];</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <td>Customer ID</td>
+      <td>Customer</td>
+      <td>Sales By Customer</td>
+      <td>SELECT DISTINCT [Company] FROM [customers Extended] ORDER BY [Company];</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <td>employee_id</td>
+      <td>Employee</td>
+      <td>Sales By Employee</td>
+      <td>SELECT DISTINCT [Employee Name] FROM [`dl_northwind`.`employees` Extended] ORDER BY [Employee Name];</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <td>Category</td>
+      <td>Category</td>
+      <td>Sales By Category</td>
+      <td>SELECT DISTINCT [Category] FROM [`dl_northwind`.`products`] ORDER BY [Category];</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <td>Product ID</td>
+      <td>Product</td>
+      <td>Sales by Product</td>
+      <td>SELECT DISTINCT [Product Name] FROM [`dl_northwind`.`products`] ORDER BY [Product Name];</td>
+      <td>1</td>
+    </tr>
+  </tbody>
+</table><h2>Descriptive Statistics</h2><table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>group_by</th>
+      <th>display</th>
+      <th>title</th>
+      <th>filter_row_source</th>
+      <th>default</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>count</th>
+      <td>5</td>
+      <td>5</td>
+      <td>5</td>
+      <td>5</td>
+      <td>5</td>
+    </tr>
+    <tr>
+      <th>unique</th>
+      <td>5</td>
+      <td>5</td>
+      <td>5</td>
+      <td>5</td>
+      <td>2</td>
+    </tr>
+    <tr>
+      <th>top</th>
+      <td>country_region</td>
+      <td>Country/Region</td>
+      <td>Sales By Country</td>
+      <td>SELECT DISTINCT [country_region] FROM [customers Extended] ORDER BY [country_region];</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>freq</th>
+      <td>1</td>
+      <td>1</td>
+      <td>1</td>
+      <td>1</td>
+      <td>4</td>
+    </tr>
+  </tbody>
+</table><h2>Duplicate Rows (full match)</h2><p>✅ None found</p><h2>Column-level Duplicates</h2><h3>default</h3><table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th>default</th>
+      <th>Count</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>0</td>
+      <td>4</td>
+    </tr>
+  </tbody>
+</table></body></html>
