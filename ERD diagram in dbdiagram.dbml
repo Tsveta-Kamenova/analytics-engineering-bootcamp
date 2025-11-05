@@ -1,106 +1,270 @@
-Table customers {
-  id int [pk]
-  company varchar
-  contact_name varchar
-  contact_title varchar
-  address varchar
-  city varchar
-  state_province varchar
-  zip_postal_code varchar
-  country_region varchar
-  phone varchar
-  email varchar
+Project "Northwind Data Warehouse" {
+  database_type: "BigQuery"
 }
 
-Table employees {
-  id int [pk]
-  first_name varchar
-  last_name varchar
-  title varchar
-  email varchar
-  city varchar
-  country_region varchar
-}
+////////////////////////////////////////////////////////
+// SALES STAR SCHEMA
+////////////////////////////////////////////////////////
 
-Table shippers {
-  id int [pk]
-  company varchar
-  phone varchar
-}
-
-Table suppliers {
-  id int [pk]
-  company varchar
-  contact_name varchar
-  contact_title varchar
-  address varchar
-  city varchar
-  state_province varchar
-  zip_postal_code varchar
-  country_region varchar
-  phone varchar
-}
-
-Table products {
-  id int [pk]
-  supplier_id int [ref: > suppliers.id]
-  product_code varchar
-  product_name varchar
-  description text
-  standard_cost decimal
-  list_price decimal
-  quantity_per_unit varchar
-  discontinued bool
-  category varchar
-}
-
-Table orders {
-  id int [pk]
-  employee_id int [ref: > employees.id]
-  customer_id int [ref: > customers.id]
-  order_date date
-  shipped_date date
-  shipper_id int [ref: > shippers.id]
-  ship_name varchar
-  ship_address varchar
-  ship_city varchar
-  ship_state_province varchar
-  ship_zip_postal_code varchar
-  ship_country_region varchar
-  shipping_fee decimal
-  taxes decimal
-  payment_type varchar
-  paid_date date
-  status varchar
-}
-
-Table order_details {
-  id int [pk]
-  order_id int [ref: > orders.id]
-  product_id int [ref: > products.id]
+Table fact_sales {
+  sales_key int [pk, increment]
+  order_id int
+  customer_key int
+  employee_key int
+  product_key int
+  shipper_key int
+  date_key int
   quantity int
   unit_price decimal
   discount decimal
+  total_sales decimal
+  taxes decimal
+  shipping_fee decimal
 }
 
-Table inventory_transactions {
-  id int [pk]
-  product_id int [ref: > products.id]
+Table dim_customer {
+  customer_key int [pk, increment]
+  company varchar
+  contact_name varchar
+  city varchar
+  country_region varchar
+}
+
+Table dim_employee {
+  employee_key int [pk, increment]
+  first_name varchar
+  last_name varchar
+  title varchar
+  city varchar
+  country_region varchar
+}
+
+Table dim_product {
+  product_key int [pk, increment]
+  product_name varchar
+  category varchar
+  standard_cost decimal
+  list_price decimal
+  discontinued bool
+}
+
+Table dim_shipper {
+  shipper_key int [pk, increment]
+  company varchar
+  phone varchar
+}
+
+Table dim_date {
+  date_key int [pk]
+  full_date date
+  day int
+  month int
+  year int
+}
+
+Ref: fact_sales.customer_key > dim_customer.customer_key
+Ref: fact_sales.employee_key > dim_employee.employee_key
+Ref: fact_sales.product_key > dim_product.product_key
+Ref: fact_sales.shipper_key > dim_shipper.shipper_key
+Ref: fact_sales.date_key > dim_date.date_key
+
+
+////////////////////////////////////////////////////////
+// INVENTORY STAR SCHEMA
+////////////////////////////////////////////////////////
+
+Table fact_inventory {
+  inventory_key int [pk, increment]
+  product_key int
+  supplier_key int
+  date_key int
   transaction_type varchar
-  transaction_date date
   quantity int
-  comments text
 }
 
-Table invoices {
-  id int [pk]
-  order_id int [ref: > orders.id]
-  invoice_date date
-  tax decimal
-  shipping decimal
-  amount_due decimal
+Table dim_inventory_product {
+  product_key int [pk, increment]
+  product_name varchar
+  category varchar
 }
 
+Table dim_inventory_supplier {
+  supplier_key int [pk, increment]
+  company varchar
+  city varchar
+}
+
+Table dim_inventory_date {
+  date_key int [pk]
+  full_date date
+  month int
+  year int
+}
+
+Ref: fact_inventory.product_key > dim_inventory_product.product_key
+Ref: fact_inventory.supplier_key > dim_inventory_supplier.supplier_key
+Ref: fact_inventory.date_key > dim_inventory_date.date_key
+
+
+////////////////////////////////////////////////////////
+// PURCHASE ORDERS STAR SCHEMA
+////////////////////////////////////////////////////////
+
+Table fact_purchase_orders {
+  po_key int [pk, increment]
+  purchase_order_id int
+  supplier_key int
+  employee_key int
+  product_key int
+  date_key int
+  quantity int
+  unit_cost decimal
+  shipping_fee decimal
+  taxes decimal
+  total_cost decimal
+}
+
+Table dim_po_supplier {
+  supplier_key int [pk, increment]
+  company varchar
+  city varchar
+  country_region varchar
+}
+
+Table dim_po_employee {
+  employee_key int [pk, increment]
+  first_name varchar
+  last_name varchar
+  title varchar
+}
+
+Table dim_po_product {
+  product_key int [pk, increment]
+  product_name varchar
+  category varchar
+}
+
+Table dim_po_date {
+  date_key int [pk]
+  full_date date
+  month int
+  year int
+}
+
+Ref: fact_purchase_orders.supplier_key > dim_po_supplier.supplier_key
+Ref: fact_purchase_orders.employee_key > dim_po_employee.employee_key
+Ref: fact_purchase_orders.product_key > dim_po_product.product_key
+Ref: fact_purchase_orders.date_key > dim_po_date.date_key
+
+
+
+////////////////////////////////////////////////////////
+// First Try Northwind Data Warehouse Model (BigQuery)
+////////////////////////////////////////////////////////
+
+//Table customers {
+//  id int [pk]
+//  company varchar
+//  contact_name varchar
+//  contact_title varchar
+//  address varchar
+//  city varchar
+//  state_province varchar
+//  zip_postal_code varchar
+//  country_region varchar
+//  phone varchar
+//  email varchar
+//}
+//
+//Table employees {
+//  id int [pk]
+//  first_name varchar
+//  last_name varchar
+//  title varchar
+//  email varchar
+//  city varchar
+//  country_region varchar
+//}
+//
+//Table shippers {
+//  id int [pk]
+//  company varchar
+//  phone varchar
+//}
+//
+//Table suppliers {
+//  id int [pk]
+//  company varchar
+//  contact_name varchar
+//  contact_title varchar
+//  address varchar
+//  city varchar
+//  state_province varchar
+//  zip_postal_code varchar
+//  country_region varchar
+//  phone varchar
+//}
+//
+//Table products {
+//  id int [pk]
+//  supplier_id int [ref: > suppliers.id]
+//  product_code varchar
+//  product_name varchar
+//  description text
+//  standard_cost decimal
+//  list_price decimal
+//  quantity_per_unit varchar
+//  discontinued bool
+//  category varchar
+//}
+//
+//Table orders {
+//  id int [pk]
+//  employee_id int [ref: > employees.id]
+//  customer_id int [ref: > customers.id]
+//  order_date date
+//  shipped_date date
+//  shipper_id int [ref: > shippers.id]
+//  ship_name varchar
+//  ship_address varchar
+//  ship_city varchar
+//  ship_state_province varchar
+//  ship_zip_postal_code varchar
+//  ship_country_region varchar
+//  shipping_fee decimal
+//  taxes decimal
+//  payment_type varchar
+//  paid_date date
+//  status varchar
+//}
+//
+//Table order_details {
+//  id int [pk]
+//  order_id int [ref: > orders.id]
+//  product_id int [ref: > products.id]
+//  quantity int
+//  unit_price decimal
+//  discount decimal
+//}
+//
+//Table inventory_transactions {
+//  id int [pk]
+//  product_id int [ref: > products.id]
+//  transaction_type varchar
+//  transaction_date date
+//  quantity int
+//  comments text
+//}
+//
+//Table invoices {
+//  id int [pk]
+//  order_id int [ref: > orders.id]
+//  invoice_date date
+//  tax decimal
+//  shipping decimal
+//  amount_due decimal
+//}
+//
 
 
 
