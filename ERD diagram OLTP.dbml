@@ -1,0 +1,229 @@
+// ============================================================
+// Northwind OLTP – Final DBML (Exact Schema from ERD PNG)
+// ============================================================
+
+Table customers {
+  customer_id int [pk]
+  company string
+  last_name string
+  first_name string
+  email_address string
+  job_title string
+  business_phone string
+  home_phone string
+  mobile_phone string
+  fax_number string
+  address string
+  city_name string
+  state_province string
+  postal_code string
+  country_region string
+  web_page string
+  notes string
+  attachments string
+}
+
+Table employees {
+  employee_id int [pk]
+  company string
+  last_name string
+  first_name string
+  email_address string
+  job_title string
+  business_phone string
+  home_phone string
+  mobile_phone string
+  fax_number string
+  address string
+  city_name string
+  state_province string
+  postal_code string
+  country_region string
+  web_page string
+  notes string
+  attachments string
+}
+
+Table shippers {
+  shipper_id int [pk]
+  company string
+  last_name string
+  first_name string
+  email_address string
+  job_title string
+  business_phone string
+  home_phone string
+  mobile_phone string
+  fax_number string
+  address string
+  city_name string
+  state_province string
+  postal_code string
+  country_region string
+  web_page string
+  notes string
+  attachments string
+}
+
+Table suppliers {
+  supplier_id int [pk]
+  company string
+  last_name string
+  first_name string
+  email_address string
+  job_title string
+  business_phone string
+  home_phone string
+  mobile_phone string
+  fax_number string
+  address string
+  city_name string
+  state_province string
+  postal_code string
+  country_region string
+  web_page string
+  notes string
+  attachments string
+}
+
+Table products {
+  product_id int [pk]
+  supplier_ids string
+  product_code string
+  product_name string
+  standard_cost float
+  list_price float
+  reorder_level int
+  target_level int
+  quantity_per_unit string
+  discontinued boolean
+  minimum_reorder_quantity int
+  category string
+  attachments string
+}
+
+Table orders {
+  order_id int [pk]
+  employee_id int [ref: > employees.employee_id]
+  customer_id int [ref: > customers.customer_id]
+  order_date string
+  shipped_date string
+  shipper_id int [ref: > shippers.shipper_id]
+  ship_name string
+  ship_address string
+  ship_city string
+  ship_state_province string
+  ship_zip_postal_code string
+  ship_country_region string
+  shipping_fee float
+  taxes float
+  payment_type string
+  paid_date string
+  notes string
+  tax_rate float
+  tax_status_id int [ref: > order_tax_status.tax_status_id]
+  order_status_id int [ref: > orders_status.status_id]
+}
+
+Table orders_status {
+  status_id int [pk]
+  status_name string
+}
+
+Table order_tax_status {
+  tax_status_id int [pk]
+  tax_status_name string
+}
+
+Table order_details {
+  order_detail_id int [pk]
+  order_id int [ref: > orders.order_id]
+  product_id int [ref: > products.product_id]
+  quantity int
+  unit_price float
+  discount float
+  status_id int [ref: > order_details_status.status_id]
+  date_allocated string
+  purchase_order_id int [ref: - purchase_orders.purchase_order_id]
+  inventory_id int [ref: - inventory_transactions.inventory_transaction_id]
+}
+
+Table order_details_status {
+  status_id int [pk]
+  status_name string
+}
+
+Table purchase_orders {
+  purchase_order_id int [pk]
+  supplier_id int [ref: > suppliers.supplier_id]
+  created_by int [ref: > employees.employee_id]
+  submitted_date string
+  creation_date string
+  expected_date string
+  shipping_fee float
+  taxes float
+  payment_date string
+  payment_amount float
+  payment_method string
+  notes string
+  approved_by int [ref: > employees.employee_id]
+  approved_date string
+  status_id int [ref: > purchase_order_status.status_id]
+}
+
+Table purchase_order_status {
+  status_id int [pk]
+  status_name string
+}
+
+Table purchase_order_details {
+  purchase_order_detail_id int [pk]
+  purchase_order_id int [ref: > purchase_orders.purchase_order_id]
+  product_id int [ref: > products.product_id]
+  quantity int
+  unit_cost float
+  date_received string
+  posted_to_inventory boolean
+  inventory_id int [ref: - inventory_transactions.inventory_transaction_id]
+}
+
+Table inventory_transactions {
+  inventory_transaction_id int [pk]
+  transaction_type int [ref: > inventory_transaction_types.transaction_type_id]
+  transaction_created_date string
+  transaction_modified_date string
+  product_id int [ref: > products.product_id]
+  quantity int
+  purchase_order_id int [ref: - purchase_orders.purchase_order_id]
+  customer_order_id int [ref: - orders.order_id]
+  comments string
+}
+
+Table inventory_transaction_types {
+  transaction_type_id int [pk]
+  type_name string
+}
+
+Table privileges {
+  privilege_id int [pk]
+  privilege_name string
+}
+
+Table employee_privileges {
+  employee_id int [ref: > employees.employee_id]
+  privilege_id int [ref: > privileges.privilege_id]
+
+  Indexes {
+    (employee_id, privilege_id) [pk]
+  }
+}
+
+Table invoices {
+  invoice_id int [pk]
+  order_id int [ref: > orders.order_id]
+  invoice_date string
+  due_date string
+  tax float
+  shipping float
+  amount_due float
+}

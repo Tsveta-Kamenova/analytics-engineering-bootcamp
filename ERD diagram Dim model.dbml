@@ -6,22 +6,6 @@ Project "Northwind Data Warehouse" {
 // SALES STAR SCHEMA
 ////////////////////////////////////////////////////////
 
-Table fact_sales {
-  sales_key int [pk, increment]
-  order_id int
-  customer_key int
-  employee_key int
-  product_key int
-  shipper_key int
-  date_key int
-  quantity int
-  unit_price decimal
-  discount decimal
-  total_sales decimal
-  taxes decimal
-  shipping_fee decimal
-}
-
 Table dim_customer {
   customer_key int [pk, increment]
   company varchar
@@ -48,10 +32,11 @@ Table dim_product {
   discontinued bool
 }
 
-Table dim_shipper {
-  shipper_key int [pk, increment]
+Table dim_supplier {
+  supplier_key int [pk, increment]
   company varchar
-  phone varchar
+  city varchar
+  country_region varchar
 }
 
 Table dim_date {
@@ -62,25 +47,98 @@ Table dim_date {
   year int
 }
 
+Table fact_sales {
+  sales_key int [pk, increment]
+  order_id int
+  customer_key int
+  employee_key int
+  product_key int
+  supplier_key int
+  date_key int
+  quantity int
+  unit_price decimal
+  discount decimal
+  total_sales decimal
+  taxes decimal
+  shipping_fee decimal
+}
+
 Ref: fact_sales.customer_key > dim_customer.customer_key
 Ref: fact_sales.employee_key > dim_employee.employee_key
 Ref: fact_sales.product_key > dim_product.product_key
-Ref: fact_sales.shipper_key > dim_shipper.shipper_key
+Ref: fact_sales.supplier_key > dim_supplier.supplier_key
 Ref: fact_sales.date_key > dim_date.date_key
+
+
+////////////////////////////////////////////////////////
+// PURCHASE ORDERS STAR SCHEMA
+////////////////////////////////////////////////////////
+
+Table dim_po_customer {
+  customer_key int [pk, increment]
+  company varchar
+  contact_name varchar
+  city varchar
+  country_region varchar
+}
+
+Table dim_po_employee {
+  employee_key int [pk, increment]
+  first_name varchar
+  last_name varchar
+  title varchar
+  city varchar
+  country_region varchar
+}
+
+Table dim_po_product {
+  product_key int [pk, increment]
+  product_name varchar
+  category varchar
+  standard_cost decimal
+  list_price decimal
+}
+
+Table dim_po_supplier {
+  supplier_key int [pk, increment]
+  company varchar
+  city varchar
+  country_region varchar
+}
+
+Table dim_po_date {
+  date_key int [pk]
+  full_date date
+  day int
+  month int
+  year int
+}
+
+Table fact_purchase_orders {
+  po_key int [pk, increment]
+  purchase_order_id int
+  supplier_key int
+  employee_key int
+  product_key int
+  customer_key int
+  date_key int
+  quantity int
+  unit_cost decimal
+  shipping_fee decimal
+  taxes decimal
+  total_cost decimal
+}
+
+Ref: fact_purchase_orders.customer_key > dim_po_customer.customer_key
+Ref: fact_purchase_orders.employee_key > dim_po_employee.employee_key
+Ref: fact_purchase_orders.product_key > dim_po_product.product_key
+Ref: fact_purchase_orders.supplier_key > dim_po_supplier.supplier_key
+Ref: fact_purchase_orders.date_key > dim_po_date.date_key
 
 
 ////////////////////////////////////////////////////////
 // INVENTORY STAR SCHEMA
 ////////////////////////////////////////////////////////
-
-Table fact_inventory {
-  inventory_key int [pk, increment]
-  product_key int
-  supplier_key int
-  date_key int
-  transaction_type varchar
-  quantity int
-}
 
 Table dim_inventory_product {
   product_key int [pk, increment]
@@ -101,61 +159,18 @@ Table dim_inventory_date {
   year int
 }
 
+Table fact_inventory {
+  inventory_key int [pk, increment]
+  product_key int
+  supplier_key int
+  date_key int
+  transaction_type varchar
+  quantity int
+}
+
 Ref: fact_inventory.product_key > dim_inventory_product.product_key
 Ref: fact_inventory.supplier_key > dim_inventory_supplier.supplier_key
 Ref: fact_inventory.date_key > dim_inventory_date.date_key
-
-
-////////////////////////////////////////////////////////
-// PURCHASE ORDERS STAR SCHEMA
-////////////////////////////////////////////////////////
-
-Table fact_purchase_orders {
-  po_key int [pk, increment]
-  purchase_order_id int
-  supplier_key int
-  employee_key int
-  product_key int
-  date_key int
-  quantity int
-  unit_cost decimal
-  shipping_fee decimal
-  taxes decimal
-  total_cost decimal
-}
-
-Table dim_po_supplier {
-  supplier_key int [pk, increment]
-  company varchar
-  city varchar
-  country_region varchar
-}
-
-Table dim_po_employee {
-  employee_key int [pk, increment]
-  first_name varchar
-  last_name varchar
-  title varchar
-}
-
-Table dim_po_product {
-  product_key int [pk, increment]
-  product_name varchar
-  category varchar
-}
-
-Table dim_po_date {
-  date_key int [pk]
-  full_date date
-  month int
-  year int
-}
-
-Ref: fact_purchase_orders.supplier_key > dim_po_supplier.supplier_key
-Ref: fact_purchase_orders.employee_key > dim_po_employee.employee_key
-Ref: fact_purchase_orders.product_key > dim_po_product.product_key
-Ref: fact_purchase_orders.date_key > dim_po_date.date_key
-
 
 
 ////////////////////////////////////////////////////////
