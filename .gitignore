@@ -5,6 +5,13 @@ venv/
 ENV/
 env/
 
+target/
+dbt_packages/
+logs/
+../dbt_env/
+../logs/
+
+
 # Ignore Python cache
 __pycache__/
 *.pyc
